@@ -1,5 +1,4 @@
-﻿using AGLEditor.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,12 +38,6 @@ namespace AGLEditor.ViewModels
                     CompiledText = AGL.Compile(_editorText, CsBindgen.Mode.PSX);
                 }
             }
-        }
-
-        public ICommand EditorTextChangedCommand { get; }
-        public EditorViewModel()
-        {
-            EditorTextChangedCommand = new EditorTextChangedCommand();
         }
     }
 }

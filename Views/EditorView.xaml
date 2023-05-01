@@ -10,24 +10,27 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!-- Left Pane -->
-        <ListBox Grid.Column="0" x:Name="fileList" />
-    
         <!-- Middle Pane -->
-        <TextBox Grid.Column="1"
+        <TextBox Grid.Column="0"
                  x:Name="middleEditor"
                  AcceptsReturn="True"
+                 AcceptsTab="True"
+                 FontSize="16"
+                 Foreground="White"
+                 Background="Black"
                  Text="{Binding EditorText, UpdateSourceTrigger=PropertyChanged}">
         </TextBox>
 
         <!-- Right Pane -->
-        <TextBox Grid.Column="2"
+        <TextBox Grid.Column="1"
                  IsReadOnly="True"
                  x:Name="rightEditor"
+                 FontSize="16"
+                 Foreground="White"
+                 Background="Black"
                  Text="{Binding CompiledText}" />
     </Grid>
 </UserControl>
