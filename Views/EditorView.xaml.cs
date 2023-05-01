@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace AGLEditor.Views
 {
     /// <summary>
-    /// Interaction logic for ProjectView.xaml
+    /// Interaction logic for EditorView.xaml
     /// </summary>
-    public partial class ProjectView : UserControl
+    public partial class EditorView : UserControl
     {
-        public ProjectView()
+        public EditorView()
         {
             InitializeComponent();
         }

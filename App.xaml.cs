@@ -7,6 +7,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
+//import CsBindgen from NativeMethodsAGL
+using CsBindgen;
+
+
 namespace AGLEditor
 {
     /// <summary>

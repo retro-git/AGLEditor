@@ -12,7 +12,7 @@ namespace AGLEditor.ViewModels
 
         public MainViewModel()
         {
-            CurrentViewModel = new ProjectViewModel();
+            CurrentViewModel = new EditorViewModel();
         }
     }
 }
