@@ -22,15 +22,12 @@
                  x:Name="middleEditor"
                  AcceptsReturn="True"
                  Text="{Binding EditorText, UpdateSourceTrigger=PropertyChanged}">
-
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="TextChanged">
-                    <i:InvokeCommandAction Command="{Binding EditorTextChangedCommand}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
         </TextBox>
 
         <!-- Right Pane -->
-        <TextBox Grid.Column="2" IsReadOnly="True" x:Name="rightEditor" />
+        <TextBox Grid.Column="2"
+                 IsReadOnly="True"
+                 x:Name="rightEditor"
+                 Text="{Binding CompiledText}" />
     </Grid>
 </UserControl>

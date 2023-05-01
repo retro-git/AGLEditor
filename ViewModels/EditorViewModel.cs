@@ -14,11 +14,17 @@ namespace AGLEditor.ViewModels
         private string _editorText;
         private string _compiledText;
 
-        public ICommand EditorTextChangedCommand { get; }
-
-        public EditorViewModel()
+        public string CompiledText
         {
-            EditorTextChangedCommand = new EditorTextChangedCommand();
+            get => _compiledText;
+            set
+            {
+                if (_compiledText != value)
+                {
+                    _compiledText = value;
+                    OnPropertyChanged(nameof(CompiledText));
+                }
+            }
         }
 
         public string EditorText
@@ -30,8 +36,15 @@ namespace AGLEditor.ViewModels
                 {
                     _editorText = value;
                     OnPropertyChanged(nameof(EditorText));
+                    CompiledText = AGL.Compile(_editorText, CsBindgen.Mode.PSX);
                 }
             }
+        }
+
+        public ICommand EditorTextChangedCommand { get; }
+        public EditorViewModel()
+        {
+            EditorTextChangedCommand = new EditorTextChangedCommand();
         }
     }
 }
