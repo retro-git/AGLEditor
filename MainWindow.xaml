@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:AGLEditor.Views"
         xmlns:vms="clr-namespace:AGLEditor.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="AGL Live Editor" Height="450" Width="800">
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type vms:EditorViewModel}">
