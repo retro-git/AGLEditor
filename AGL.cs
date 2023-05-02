@@ -13,6 +13,7 @@ namespace AGLEditor
         // Throws an exception if the compilation fails.
         public static string Compile(string source, Mode mode)
         {
+            //if source is null, return error message
             unsafe
             {
                 fixed (char* p = source)

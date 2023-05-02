@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsBindgen;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,23 @@ namespace AGLEditor.ViewModels
     {
         private string _editorText;
         private string _compiledText;
+        private Mode _systemMode = Mode.PSX;
+
+        public IEnumerable<Mode> SystemModes { get; } = Enum.GetValues(typeof(Mode)).Cast<Mode>();
+
+        public string EditorText
+        {
+            get => _editorText;
+            set
+            {
+                if (_editorText != value)
+                {
+                    _editorText = value;
+                    OnPropertyChanged(nameof(EditorText));
+                    CompileUpdate();
+                }
+            }
+        }
 
         public string CompiledText
         {
@@ -26,18 +44,24 @@ namespace AGLEditor.ViewModels
             }
         }
 
-        public string EditorText
+        public Mode SystemMode
         {
-            get => _editorText;
+            get => _systemMode;
             set
             {
-                if (_editorText != value)
+                if (_systemMode != value)
                 {
-                    _editorText = value;
-                    OnPropertyChanged(nameof(EditorText));
-                    CompiledText = AGL.Compile(_editorText, CsBindgen.Mode.PSX);
+                    _systemMode = value;
+                    OnPropertyChanged(nameof(SystemMode));
+                    CompileUpdate();
                 }
             }
+        } 
+
+        private void CompileUpdate()
+        {
+            if (_editorText == null) { return; }
+            CompiledText = AGL.Compile(_editorText, SystemMode);
         }
     }
 }
